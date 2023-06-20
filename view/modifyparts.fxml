@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<GridPane prefHeight="494.0" prefWidth="576.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.modifyPartController">
+    <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="180.0" />
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="130.0" />
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints maxHeight="100.0" minHeight="100.0" prefHeight="100.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="-Infinity" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="-Infinity" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="-Infinity" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="-Infinity" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="-Infinity" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="-Infinity" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    </rowConstraints>
+    <children>
+        <Label fx:id="ModifyIDLabel" text="ID" GridPane.rowIndex="1">
+            <GridPane.margin>
+                <Insets left="100.0" />
+            </GridPane.margin>
+        </Label>
+        <Label fx:id="ModifyVariableLabel" text="Variable-Label" GridPane.rowIndex="6">
+            <GridPane.margin>
+                <Insets left="100.0" />
+            </GridPane.margin>
+        </Label>
+        <Label fx:id="ModifyNameLabel" text="Name" GridPane.rowIndex="2">
+            <GridPane.margin>
+                <Insets left="100.0" />
+            </GridPane.margin>
+        </Label>
+        <Label fx:id="ModifyPriceLabel" text="Price/Cost" GridPane.rowIndex="4">
+            <GridPane.margin>
+                <Insets left="100.0" />
+            </GridPane.margin>
+        </Label>
+        <Label fx:id="ModifyInvLabel" text="Inv" GridPane.rowIndex="3">
+            <GridPane.margin>
+                <Insets left="100.0" />
+            </GridPane.margin>
+        </Label>
+        <Label text="Modify Modify">
+            <font>
+                <Font name="System Bold" size="14.0" />
+            </font>
+            <GridPane.margin>
+                <Insets left="80.0" />
+            </GridPane.margin>
+        </Label>
+        <RadioButton fx:id="InhouseRadio" mnemonicParsing="false" onAction="#onInhouseRadioSelect" text="In-House" GridPane.columnIndex="1">
+            <toggleGroup>
+                <ToggleGroup fx:id="SourcingToggle" />
+            </toggleGroup>
+        </RadioButton>
+        <RadioButton fx:id="OutsourcedRadio" mnemonicParsing="false" onAction="#onOutsourcedRadioSelect" text="Outsourced" toggleGroup="$SourcingToggle" GridPane.columnIndex="2" />
+        <Label fx:id="ModifyMaxLabel" text="Max" GridPane.rowIndex="5">
+            <GridPane.margin>
+                <Insets left="100.0" />
+            </GridPane.margin>
+        </Label>
+        <TextField fx:id="ModifyIDField" disable="true" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <font>
+                <Font size="10.0" />
+            </font>
+        </TextField>
+        <TextField fx:id="ModifyNameField" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+        <TextField fx:id="ModifyInvField" maxWidth="-Infinity" minWidth="-Infinity" onKeyTyped="#onModifyInvFieldKeyTyped" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+        <TextField fx:id="ModifyPriceField" maxWidth="-Infinity" minWidth="-Infinity" onKeyTyped="#onModifyPriceFieldKeyTyped" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+        <TextField fx:id="ModifyMaxField" maxWidth="-Infinity" minWidth="-Infinity" onKeyTyped="#ModifyMaxFieldKeyTyped" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+        <TextField fx:id="ModifyVariableField" maxWidth="-Infinity" minWidth="-Infinity" onKeyTyped="#onModifyVariableFieldKeyPressed" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+        <GridPane GridPane.columnIndex="2" GridPane.rowIndex="5">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="125.0" minWidth="10.0" prefWidth="65.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="201.0" minWidth="10.0" prefWidth="201.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <Label fx:id="ModifyMinLabel" text="Min" />
+                <TextField fx:id="ModifyMinField" maxWidth="-Infinity" minWidth="-Infinity" onKeyTyped="#ModifyMinFieldKeyTyped" prefWidth="100.0" GridPane.columnIndex="1" />
+            </children>
+        </GridPane>
+        <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="7">
+            <children>
+                <Button fx:id="ModifySaveButton" mnemonicParsing="false" onAction="#onModifySaveButtonClick" text="Save">
+                    <HBox.margin>
+                        <Insets top="50.0" />
+                    </HBox.margin>
+                </Button>
+                <Button fx:id="ModifyCancelButton" mnemonicParsing="false" onAction="#onModifyCancelButtonClick" text="Cancel">
+                    <HBox.margin>
+                        <Insets left="10.0" top="50.0" />
+                    </HBox.margin>
+                </Button>
+            </children>
+        </HBox>
+    </children>
+</GridPane>
